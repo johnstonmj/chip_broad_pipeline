@@ -1,0 +1,1 @@
+Cluster run logs will be found here. Important to create this directory as Snakemake will not create this for LSF job logs.
