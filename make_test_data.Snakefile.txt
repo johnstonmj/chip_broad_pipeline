@@ -1,0 +1,31 @@
+# # Run
+# # snakemake -nq --jobs 200 --use-conda --cluster-config cluster.yaml --cluster "bsub -J {cluster.jobname} -n {cluster.numcpu} -R {cluster.span} -R {cluster.memory} -M {cluster.maxmem} -We {cluster.wall_est} -W {cluster.wall_max} -o {cluster.output} -e {cluster.error} < " all
+
+# Collect names from folder
+samp_names, = glob_wildcards("/gpfs/gallo/michael/data/ana_523-567-583_h3k27ac/alignment_bwa_mem/{sample}.hg38.sorted.bam")
+
+localrules: all
+
+# Collector rule
+rule all:
+    input: 
+        expand("test_data/{sample}.chr22.30-40M.R2.fastq", sample=samp_names)
+
+# Make test data
+#########
+rule make_test_data:
+    input:
+        "/gpfs/gallo/michael/data/ana_523-567-583_h3k27ac/alignment_bwa_mem/{sample}.hg38.sorted.bam"
+    output:
+        filter_sort=temp("{sample}.chr22.30-40M.nameSort.bam"),
+        fq1="test_data/{sample}.chr22.30-40M.R1.fastq",
+        fq2="test_data/{sample}.chr22.30-40M.R2.fastq"
+    shell:
+        """
+        samtools view -bh {input} "chr22:30000000-40000000" |\
+        samtools sort -n > {output.filter_sort}
+
+        bedtools bamtofastq -i {output.filter_sort} \
+                      -fq {output.fq1} \
+                      -fq2 {output.fq2}
+        """

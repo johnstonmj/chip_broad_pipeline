@@ -1,0 +1,14 @@
+name: r-pearson
+channels:
+  - conda-forge
+  - bioconda
+  - defaults
+  - r 
+dependencies:
+  - r-cairo = 1.5_9
+  - r-corrplot = 0.77
+  - r-dplyr = 0.5.0
+  - r-hmisc = 4.0_0
+  - r-readr = 0.2.2
+  - r-tibble = 1.2
+  - r-tidyr = 0.6.0

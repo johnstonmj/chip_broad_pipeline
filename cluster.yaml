@@ -1,0 +1,20 @@
+__default__ :
+    queue     : normal
+    numcpu    : "{threads}"
+    memory    : "\"rusage[mem=4000]\""
+    span      : "\"span[hosts=1]\""
+    maxmem    : 250000
+    jobname   : "{rule}.{wildcards}"
+    wall_est  : 2:00
+    wall_max  : 24:00
+    output    : "logs/{rule}.{wildcards}.out"
+    error     : "logs/{rule}.{wildcards}.err"
+bwa_align:
+    memory    : "\"rusage[mem=8000]\""
+multiBigwig_norm_counts:
+    output    : "logs/{rule}.out"
+    error     : "logs/{rule}.err"
+pearson:
+    output    : "logs/{rule}.out"
+    error     : "logs/{rule}.err"
+    

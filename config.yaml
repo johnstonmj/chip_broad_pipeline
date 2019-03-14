@@ -1,0 +1,35 @@
+# Blacklist file of common false-positive sites in the genome
+# Downloaded from https://sites.google.com/site/anshulkundaje/projects/blacklists
+blacklist: "/gpfs/home/mjohnston/reference/hg38.blacklist.bed.gz"
+
+# Broad peak calls. Separate threshold for broad peaks.
+# Will be interpreted as q-value due to -q specified for q_val
+broad_cutoff: "0.1"
+
+# Genome chromosome sizes needed for IGV-viewable TDF
+chrom_sizes: "/gpfs/gallo/michael/reference/hg38.chrom.sizes"
+
+# Effective genome size required by DeepTools normalization to RPGC - reads per genomic content
+# Homo sapiens 2750000000 taken from https://www.nature.com/articles/nbt.1518/tables/1  @70bp seq length
+eff_genome: "2750000000"
+
+# Specify genome to align against and system path
+genome_path: "/gpfs/gallo/michael/reference/hg38.fa"
+
+# Genome size argument for MACS
+# hs for homo sapiens
+genome_size: "hs"
+
+# ChIP sample names. List of lists of pairs. [ip_name, input_contol_name]
+# Assumes fastq file names end with .R1.fastq
+ip_input_pairs: [["samp1_ip.rep1", "samp1_input"],["samp1_ip.rep2", "samp1_input"],["samp2_ip.rep1", "samp2_input"],["samp2_ip.rep2", "samp2_input"]]
+
+# Minimum alignment quality threshold for samtools alignment filtering
+min_aln_q: 30
+
+# q-value for MACS peak calls.
+# In broad peakcalling mode, MACS2 uses -q or -p setting to define regions within broadpeaks as 'stronger' enrichment.
+q_val: 0.05
+
+# Location for temporary files to be written
+tmp_dir: "/home/mjohnston/tmp"
