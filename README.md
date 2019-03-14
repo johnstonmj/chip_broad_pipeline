@@ -1,9 +1,8 @@
 # chip_broad_pipeline
 Call broad ChIP peaks from paired Illumina sequencing data in directory "input_fastqs".
 
-Uses Snakemake to manage job submission and tracking.
-
-Modify config.yaml with specific names, paths, and options.
+Uses Snakemake to manage job submission and tracking.  
+Modify config.yaml with specific names, paths, and options.  
 Modify cluster.yaml and edit snakemake execution command for a particular server.
 
 Current invocation:
