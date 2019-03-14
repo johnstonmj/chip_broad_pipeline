@@ -1,8 +1,5 @@
 # # Run
-# # snakemake -nq --jobs 200 --use-conda --cluster-config cluster.yaml --cluster "bsub -J {cluster.jobname} -n {cluster.numcpu} -R {cluster.span} -R {cluster.memory} -M {cluster.maxmem} -We {cluster.wall_est} -W {cluster.wall_max} -o {cluster.output} -e {cluster.error} < " all
-
-# Exclude node013
-# snakemake -nq --jobs 200 --use-conda --cluster-config cluster.yaml --cluster "bsub -J {cluster.jobname} -n {cluster.numcpu} -R "select[hname!=node013]" -R "select[hname!=node002]" -R {cluster.span} -R {cluster.memory} -M {cluster.maxmem} -We {cluster.wall_est} -W {cluster.wall_max} -o {cluster.output} -e {cluster.error} < " all
+# snakemake -nq --jobs 200 --use-conda --cluster-config cluster.yaml --cluster "bsub -J {cluster.jobname} -n {cluster.numcpu} -R {cluster.span} -R {cluster.memory} -M {cluster.maxmem} -We {cluster.wall_est} -W {cluster.wall_max} -o {cluster.output} -e {cluster.error} < " all
 
 # snakemake --dag all | dot -Tsvg > dag.svg
 
