@@ -14,4 +14,4 @@ snakemake -nq --jobs 200 --use-conda --cluster-config cluster.yaml \
 
 Workflow:
 
-![alt text](https://github.com/johnstonmj/chip_broad_pipeline/blob/master/chip_broad_dag.svg "Workflow DAG")
+![alt text](https://github.com/johnstonmj/chip_broad_pipeline/blob/master/chip_broad_dag.svg "Demo Workflow DAG")
